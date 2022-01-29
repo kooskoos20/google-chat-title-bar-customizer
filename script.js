@@ -5,12 +5,17 @@ const colorIdentifiersForPeople = {
     "Interleap Team": "#AFD275FF"
 }
 
+const ACTIVE_NOTIFICATION_BACKGROUND_COLOR_IN_RGB_STRING = "rgb(26, 115, 232)"
+
+const hasActiveNotification = (node) => window.getComputedStyle(node).backgroundColor === ACTIVE_NOTIFICATION_BACKGROUND_COLOR_IN_RGB_STRING
+
 const observer = new MutationObserver(() => {
     const [container] = document.getElementsByClassName("dPuQff")
-    if(!container) return
+    if (!container) return
     const color = colorIdentifiersForPeople[container.innerText]
-    if(!color) return
-    container.style.backgroundColor = color
-    observer.disconnect()
+    if (!color) return
+    const { parentElement } = container
+    if (!hasActiveNotification(parentElement))
+        parentElement.style.backgroundColor = color
 });
 observer.observe(document.body, { subtree: true, childList: true });
