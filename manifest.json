@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "Hangouts Title Bar Customizer",
+    "version": "0.0.1",
+    "content_scripts": [
+        {
+            "matches": ["https://chat.google.com/*"],
+            "js": ["script.js"],
+            "runs_at": "document_end",
+            "all_frames": true
+        }
+    ]
+}
