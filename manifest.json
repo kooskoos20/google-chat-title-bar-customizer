@@ -6,6 +6,7 @@
         {
             "matches": ["https://chat.google.com/*"],
             "js": ["script.js"],
+            "css": ["style.css"],
             "runs_at": "document_end",
             "all_frames": true
         }
